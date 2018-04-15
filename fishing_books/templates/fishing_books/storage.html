@@ -1,0 +1,12 @@
+{% extends "fishing_books/base.html" %}
+
+{% block content%}
+<p>点击书名看小伙伴们的评论:</p>
+<ul>
+  {% for book in storages %}
+    <li><a href = "{% url 'fishing_books:comment' book.id %}" >{{ book }} $ {{ book.price }}</a></li>
+    {% empty %}
+      <li>没有你看过的书？点我添加</li>
+  {% endfor %}
+</ul>
+{% endblock content%}

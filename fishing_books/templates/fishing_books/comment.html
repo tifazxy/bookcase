@@ -1,0 +1,19 @@
+{% extends "fishing_books/base.html" %}
+
+{% block content%}
+<p>{{ storage }}:</p>
+<ul>
+  {% for comment in comments %}
+    <li>
+      <p>{{ comment.date_added|date:'Y-m-d, H:i:s' }}</p>
+      <p>{{ comment.text|linebreaks }}</p>
+    </li>
+    {% empty %}
+      <li>你喜对本书有什么体会？请留下你的评论吧！</li>
+  {% endfor %}
+</ul>
+{% endblock content%}
+
+<!--
+M英文月份  m数字月份
+-->
