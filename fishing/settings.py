@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # for others app
+    'bootstrap3',
     #my app
     'fishing_books',
 ]
@@ -121,3 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# for django-bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
+

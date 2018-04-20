@@ -1,0 +1,20 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+<p>Return <a href="{% url 'fishing_books:storage' book.id %}">{{ storage }}
+</a></p>
+<h3>编辑评论:</h3>
+{% endblock header %}
+
+{% block content %}
+  
+  <form action="{% url 'fishing_books:edit_comment' comment.id %}" method='post'
+  class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">保存</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

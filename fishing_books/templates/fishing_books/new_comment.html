@@ -1,0 +1,22 @@
+{% extends "fishing_books/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+<p>Return 
+<a href="{% url 'fishing_books:storage' book.id %}">{{ storage }}</a>
+</p>
+<h3>Add a new comment:</h3>
+{% endblock header %}
+
+{% block content %}
+  
+  <form action="{% url 'fishing_books:new_comment' book.id %}" method='post'
+  class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">add entry</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

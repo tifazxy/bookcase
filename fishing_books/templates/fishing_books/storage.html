@@ -1,12 +1,22 @@
 {% extends "fishing_books/base.html" %}
 
+
+{% block header %}
+  <h1>书籍列表</h1>
+{% endblock header %}
+
 {% block content%}
-<p>点击书名看小伙伴们的评论:</p>
 <ul>
   {% for book in storages %}
-    <li><a href = "{% url 'fishing_books:comment' book.id %}" >{{ book }} $ {{ book.price }}</a></li>
+    <li>
+      <h3>
+        <a href = "{% url 'fishing_books:comment' book.id %}">{{ book }} $ {{ book.price }}</a>
+      </h3>  
+    </li>
     {% empty %}
-      <li>没有你看过的书？点我添加</li>
+      <li>还没有书籍被创建.</li>
   {% endfor %}
 </ul>
+
+<h3><a href="{% url 'fishing_books:new_storage' %}">添加新的书籍:</a></h3>
 {% endblock content%}
