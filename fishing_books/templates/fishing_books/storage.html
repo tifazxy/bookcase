@@ -10,7 +10,7 @@
   {% for book in storages %}
     <li>
       <h3>
-        <a href = "{% url 'fishing_books:comment' book.id %}">{{ book }} $ {{ book.price }}</a>
+        <a href = "{% url 'fishing_books:comment' book.id %}">{{ book }}</a>
       </h3>  
     </li>
     {% empty %}

@@ -41,6 +41,7 @@ def new_storage(request):
         if form.is_valid():
             new_storage = form.save(commit=False)
             new_storage.owner = request.user
+            new_storage.price = 0
             new_storage.save()
             return HttpResponseRedirect(reverse('fishing_books:storage'))
     context = {'form' : form}

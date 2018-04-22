@@ -5,7 +5,7 @@
 <p>Return 
 <a href="{% url 'fishing_books:comment' storage.id %}">{{ storage }}</a>
 </p>
-<h3>Add a new comment:</h3>
+<h3>增加记录:</h3>
 {% endblock header %}
 
 {% block content %}
@@ -15,7 +15,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button name="submit" class="btn btn-primary">add entry</button>
+    <button name="submit" class="btn btn-primary">保存</button>
     {% endbuttons %}
   </form>
 
