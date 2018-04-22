@@ -15,7 +15,7 @@ def index(request):
     #render(request, templete)
     return render(request, 'fishing_books/index.html')
 
-@login_required    
+@login_required
 def All_storage(request):
     """All the book storage"""
     storages = Storage.objects.filter(owner=request.user).order_by('date_added')

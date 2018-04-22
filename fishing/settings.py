@@ -125,6 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# My option.
+LOGIN_URL = '/users/login' 
+
 # for django-bootstrap3
 BOOTSTRAP3 = {
     'include_jquery': True,
