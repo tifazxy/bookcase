@@ -16,8 +16,11 @@ urlpatterns = [
     
     url(r'^storage/(?P<book_id>\d+)/$', 
     views.storage_all_comment, name='comment'),
-    #~ 
-    #~ url(r'^new_comment/(?P<book_id>\d+)/$', 
-    #~ views.new_comment, name='new_comment'),
+    
+    url(r'^new_comment/(?P<book_id>\d+)/$', 
+    views.new_comment, name='new_comment'),
+    
+    url(r'^edit_comment/(?P<comment_id>\d+)/$', 
+    views.edit_comment, name='edit_comment'),
 
 ]

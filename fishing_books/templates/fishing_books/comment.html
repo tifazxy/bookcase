@@ -1,17 +1,27 @@
 {% extends "fishing_books/base.html" %}
 
+{% block header %}
+  <h2>{{ storage }}</h2>
+{% endblock header %}
+
 {% block content%}
-<p>{{ storage }}:</p>
-<ul>
+<p>
+  <a href="{% url 'fishing_books:new_comment' storage.id %}">添加评论</a>
+</p>
   {% for comment in comments %}
-    <li>
-      <p>{{ comment.date_added|date:'Y-m-d, H:i:s' }}</p>
-      <p>{{ comment.text|linebreaks }}</p>
-    </li>
-    {% empty %}
-      <li>你对本书有什么体会？请留下你的评论吧！</li>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>{{ comment.date_added|date:'Y-m-d, H:i:s' }}
+         <small><a href="{% url 'fishing_books:edit_comment' comment.id %}">
+                  编辑评论</a>
+         </small>
+        </h3>
+      </div>
+      <div class="panel-body">{{ comment.text|linebreaks }}</div>
+    </div><!-- panel  -->
+  {% empty %}
+    你对本书有什么体会？请留下你的评论吧！
   {% endfor %}
-</ul>
 {% endblock content%}
 
 <!--

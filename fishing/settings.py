@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     #my app
     'fishing_books',
+    'users',
 ]
 
 MIDDLEWARE = [
