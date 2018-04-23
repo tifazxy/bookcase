@@ -1,2 +1,2 @@
 # bookcase
-Create books' infomation, commit comments for books.
+Create books' infomation, write your own notebooks.
