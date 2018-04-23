@@ -11,7 +11,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-      <button name="submit" class="btn btn-primary">log in</button>
+      <button name="submit" class="btn btn-primary">登录</button>
     {% endbuttons %}
     <input type="hidden" name="next" value="{% url 'fishing_books:index' %}" />
   </form>
