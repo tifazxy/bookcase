@@ -1,0 +1,35 @@
+{% extends "fishing_books/base.html" %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content%}
+<p>
+  <a href="{% url 'book_comments:add_comments' %}">发布文章</a>
+</p>
+  {% for article in articles %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5>{{ article.title }}
+            <small>{{ article.date|date:'Y-m-d, H:i:s' }}</small>
+            <small>{{ article.owner }}</small>
+{% comment %}         <small><a href="{% url 'fishing_books:edit_comment' comment.id %}">
+                  编辑笔记</a>
+         </small>{% endcomment %}
+        </h5>
+      </div>
+      <div class="panel-body">{{ article.text|linebreaks }}
+       <small><a href="{% url 'book_comments:article_detail' article.id %}">
+                  read more</a>
+       </small>
+      </div>
+    </div><!-- panel  -->
+  {% empty %}
+    欢迎留下记录！
+  {% endfor %}
+{% endblock content%}
+
+<!--
+M英文月份  m数字月份
+-->

@@ -1,0 +1,19 @@
+{% extends "fishing_books/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h3>增加记录:</h3>
+{% endblock header %}
+
+{% block content %}
+  
+  <form action="{% url 'book_comments:add_comments' %}" method='post'
+  class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">保存</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}
