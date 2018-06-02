@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('fishing_books.urls', namespace='fishing_books')),
     url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^comments/', include('book_comments.urls', namespace='book_comments')),
 ]
