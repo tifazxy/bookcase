@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from .models import Storage, Comment
 
+
 class StorageForm(forms.ModelForm):
     class Meta:
         model = Storage
@@ -9,6 +10,7 @@ class StorageForm(forms.ModelForm):
         lables = {'book_name': ''}
         #fields = "__all__"
         #fields = ['book_name', 'price'] 
+
 
 class CommentForm(forms.ModelForm):
     class Meta:

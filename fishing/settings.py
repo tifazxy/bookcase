@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #my app
     'fishing_books',
     'users',
+    'book_comments',
 ]
 
 MIDDLEWARE = [
@@ -80,9 +81,16 @@ WSGI_APPLICATION = 'fishing.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bookcase',
+        'PORT': '3306',
+        'USER': 'root',
+        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
     }
 }
 
@@ -105,6 +113,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Caches validation
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:8888/0',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

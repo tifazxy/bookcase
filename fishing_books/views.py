@@ -10,10 +10,13 @@ from .models import Storage, Comment
 from .forms import StorageForm, CommentForm
 
 # Create your views here.
+
+
 def index(request):
     """index page"""
-    #render(request, templete)
+    # render(request, templete)
     return render(request, 'fishing_books/index.html')
+
 
 @login_required
 def All_storage(request):
@@ -22,14 +25,16 @@ def All_storage(request):
     context = {'storages' : storages}
     return render(request, 'fishing_books/storage.html', context)
 
+
 @login_required    
 def storage_all_comment(request, book_id):
     """All comments for books"""
     storage = Storage.objects.get(id = book_id)
     check_storage_owner(storage, request)
     comments = storage.comment_set.order_by('date_added')
-    context = {'storage' : storage, 'comments' : comments}
+    context = {'storage': storage, 'comments' : comments}
     return render(request, 'fishing_books/comment.html', context)
+
 
 @login_required
 def new_storage(request): 
@@ -44,8 +49,9 @@ def new_storage(request):
             new_storage.price = 0
             new_storage.save()
             return HttpResponseRedirect(reverse('fishing_books:storage'))
-    context = {'form' : form}
+    context = {'form': form}
     return render(request, 'fishing_books/new_storage.html', context)
+
 
 @login_required    
 def new_comment(request, book_id):
@@ -61,9 +67,10 @@ def new_comment(request, book_id):
             new_comment.save()
             return HttpResponseRedirect(reverse('fishing_books:comment',
             args=[book_id]))
-    context = {'form' : form, 'storage' : storage}
+    context = {'form': form, 'storage': storage}
     return render(request, 'fishing_books/new_comment.html', context)
-    
+
+
 @login_required        
 def edit_comment(request, comment_id):
     """edit exist comment""" 
@@ -82,7 +89,8 @@ def edit_comment(request, comment_id):
             args=[storage.id]))
     context = {'comment': comment, 'storage': storage, 'form': form}
     return render(request, 'fishing_books/edit_comment.html', context)
-    
+
+
 def check_storage_owner(storage, request):
     if storage.owner != request.user:
         raise Http404
