@@ -1,2 +1,2 @@
-# bookcase
-Create books' infomation, write your own notebooks.
+# Bookcase
+Create infomation ob books, write your own notebooks.
