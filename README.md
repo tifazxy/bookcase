@@ -1,2 +1,2 @@
 # Bookcase
-Create infomation ob books, write your own notebooks.
+Note management web application based on Django.
